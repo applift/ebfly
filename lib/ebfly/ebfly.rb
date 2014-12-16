@@ -69,7 +69,7 @@ module Ebfly
 
     # EnvironmentName must contain only letters, digits, and the dash character and may not start or end with a dash
     def env_name(app, env)
-      [app.gsub(/[^a-zA-Z0-9]/, '-'), env].join('-')
+      env
     end
 
     def tier(type)
