@@ -34,14 +34,13 @@ module Ebfly
     end
 
     def run(&block)
-      begin
-        res = yield
-        raise res.error unless res.successful?
-        res
-      rescue => err
-        style_err(err)
-        exit 1
-      end
+      res = yield
+      raise res.error unless res.successful?
+      res
+    rescue => err
+      style_err(err)
+      debug(err.backtrace)
+      exit 1
     end
 
     def s3_bucket
